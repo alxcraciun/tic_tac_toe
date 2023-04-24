@@ -28,16 +28,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> table = List<Widget>.generate(9,
-        (int index) => Container(
-        alignment: AlignmentDirectional.center,
-        decoration: BoxDecoration(
-            border: Border.all(
-                color: Colors.black
-                width: 1px,
-            )
-        ),
-        child: Text('$index')));
+  List<Widget> table = List<Widget>.generate(
+    9,
+    (int index) => Container(
+      alignment: AlignmentDirectional.center,
+      decoration: BoxDecoration(
+        border: Border.all(),
+      ),
+      child: Text('$index'),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {

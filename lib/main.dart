@@ -28,14 +28,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool playerTurn = true; // true = player1
+  List<Color> tableColors = List<Color>.generate(9, (int index) => Colors.white);
+
   List<Widget> table = List<Widget>.generate(
     9,
-    (int index) => Container(
-      alignment: AlignmentDirectional.center,
-      decoration: BoxDecoration(
-        border: Border.all(),
+    (int index) => GestureDetector(
+      onTap: () {
+        setState(() {
+          if(playerTurn) {
+            tableColors[index] = Colors.green;
+          }
+          else {
+            tableColors[index] = Colors.red;
+          }
+        });
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        alignment: AlignmentDirectional.center,
+        decoration: BoxDecoration(border: Border.all()),
+        color: tableColors[index],
+        child: Text('$index'),
       ),
-      child: Text('$index'),
     ),
   );
 
